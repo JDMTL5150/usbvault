@@ -59,7 +59,7 @@ int main() {
     buff << inFile.rdbuf();
     string content = buff.str();
 
-    database = entityParser(content,envKey);
+    if (content.size() > 0) database = entityParser(content,envKey);
 
     stats.entries = database.size();
 
