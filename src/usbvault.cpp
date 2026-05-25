@@ -30,6 +30,7 @@ void createDatabase();
 void createMasterKey();
 
 int main() {
+    signal(SIGINT, SIG_IGN);
     DatabaseStatistics stats;
     std::vector<PasswordEntity> database;
     bool isRunning = true;
@@ -50,7 +51,7 @@ int main() {
 
     // check if user has made a local database
     if(!inFile.is_open()) {
-        cout << "No database found in system." << endl;
+        cout << "\nNo database found in system." << endl;
         cout << "### Create your database ###" << endl;
         TIMEOUT(2);
         createDatabase();

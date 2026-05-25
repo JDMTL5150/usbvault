@@ -248,9 +248,12 @@ inline string databaseReader(const string& link,const string& password) {
 }
 
 string getMasterPass() {
-    std::ifstream ifile("data/shadow.dat");
+    std::ifstream ifile(SHADOW_PATH);
     string key = "";
-    if (!ifile.is_open()) return "";
+    if (!ifile.is_open()) {
+        cout << "* Key not found. *" << endl;
+        return "";
+    }
     ifile >> key;
     return key;
 }

@@ -4,6 +4,7 @@
 #include <chrono>
 #include <limits>
 #include <algorithm>
+#include <csignal>
 
 #define TIMEOUT(x) std::this_thread::sleep_for(std::chrono::seconds(x));
 
